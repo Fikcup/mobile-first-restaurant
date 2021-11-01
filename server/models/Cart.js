@@ -5,7 +5,13 @@ class Cart extends Model {}
 
 Cart.init(
     {
-
+        uuid: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV1,
+            primaryKey: true,
+            allowNull: false,
+            unique: true,
+        }
     },
     {
         sequelize,
