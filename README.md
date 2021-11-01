@@ -25,4 +25,5 @@
 
 * PWA research
 * Test case research
-* Setup code shell
+
+![EER Diagram](./client/public/assets/mobile-first-buffet-eer.PNG)
