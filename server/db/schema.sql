@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS buffet_db;
+
+CREATE DATABASE buffet_db;

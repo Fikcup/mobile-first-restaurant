@@ -4,6 +4,7 @@
   "description": "A la carte buffet PWA mobile first website with pickup options.",
   "main": "server/server.js",
   "scripts": {
+    "start": "node server/server.js",
     "test": "jest --watch"
   },
   "repository": {
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/Fikcup/mobile-first-buffet#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mysql2": "^2.3.2",
