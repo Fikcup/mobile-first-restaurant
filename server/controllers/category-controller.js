@@ -11,6 +11,20 @@ const categoryController = {
                 res.status(500).json(err);
             });
     },
+    getOneCategory(req, res) {
+        Category.findOne({
+            where: {
+                uuid: req.params.id
+            }
+        })
+            .then((userData) => {
+                res.json(userData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    }
 };
 
 module.exports = categoryController;
