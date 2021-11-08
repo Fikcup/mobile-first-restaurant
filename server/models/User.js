@@ -36,6 +36,15 @@ User.init(
             validate: {
                 isEmail: true
             }
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                is: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/,
+                min: 8,
+                max: 256
+            }
         }
     },
     {
