@@ -38,6 +38,20 @@ const userController = {
                 console.log(err);
                 res.status(500).json(err);
             });
+    },
+    deleteUser(req, res) {
+        User.destroy({
+            where: {
+                uuid: req.params.id
+            }
+        })
+            .then(() => {
+                res.json({ message: "User has been deleted" });
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
     }
 };
 
