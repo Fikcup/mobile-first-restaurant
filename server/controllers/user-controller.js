@@ -24,7 +24,21 @@ const userController = {
                 console.log(err);
                 res.status(500).json(err);
             });
-    }    
+    },
+    updateUser(req, res) {
+        User.update(req.body, {
+            where: {
+                uuid: req.params.id
+            }
+        })
+            .then(() => {
+                res.json({ message: "User has been updated" });
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    }
 };
 
 module.exports = userController;
