@@ -63,6 +63,9 @@ User.init(
             validPassword: function(password) {
                 return bcrypt.compareSync(password, this.password);
             }
+        },
+        defaultScope: {
+            attributes: { exclude: ['password'] },
         }, 
         sequelize,
         freezeTableName: true,
