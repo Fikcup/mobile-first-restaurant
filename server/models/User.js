@@ -55,8 +55,8 @@ User.init(
                 return userData;
             },
             beforeUpdate: (updatedUserData) => {
-              updatedUserData.password = bcrypt.hashSync(updatedUserData.password, 10);
-              return updatedUserData;
+                updatedUserData.password = bcrypt.hashSync(updatedUserData.password, 10);
+                return updatedUserData;
             }
         },
         instanceMethods: {

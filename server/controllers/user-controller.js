@@ -29,7 +29,8 @@ const userController = {
         User.update(req.body, {
             where: {
                 uuid: req.params.id
-            }
+            },
+            individualHooks: true
         })
             .then(() => {
                 res.json({ message: "User has been updated" });
