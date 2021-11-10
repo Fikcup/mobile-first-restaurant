@@ -1,4 +1,5 @@
 const { DataTypes, Model } = require('sequelize');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {}
@@ -47,7 +48,25 @@ User.init(
             }
         }
     },
-    {
+    { 
+        hooks: {
+            beforeCreate: (userData) => {
+                userData.password = bcrypt.hashSync(userData.password, 10);
+                return userData;
+            },
+            beforeUpdate: (updatedUserData) => {
+                updatedUserData.password = bcrypt.hashSync(updatedUserData.password, 10);
+                return updatedUserData;
+            }
+        },
+        instanceMethods: {
+            validPassword: function(password) {
+                return bcrypt.compareSync(password, this.password);
+            }
+        },
+        defaultScope: {
+            attributes: { exclude: ['password'] },
+        }, 
         sequelize,
         freezeTableName: true,
         underscored: true,
