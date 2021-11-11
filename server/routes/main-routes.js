@@ -1,22 +1,8 @@
 const router = require('express').Router();
-const jwt = require('jsonwebtoken');
 
-router.get('/login', async (req, res) => {
-    try {
-        
-    } catch (err) {
-        res.status(500).json(err);
-        res.redirect('/');
-    }
-});
-
-router.get('/signup', async (req, res) => {
-    try {
-        
-    } catch (err) {
-        res.status(500).json(err);
-        res.redirect('/');
-    }
-});
+router.get('/', (req, res) => {
+    // TODO: display deal
+    // TODO: display top 5 items
+})
 
 module.exports = router;
