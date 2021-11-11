@@ -1,29 +1,42 @@
 # Mobile first buffet
 
-## Potential technologies
+## Technologies
 
-* PWA
+* Jest
+* Heroku
+
+### Frontend
+
 * JavaScript
-* React.js front end
-* Express with RESTful routing
-* MySQL with Sequelize
+* React.js
+* Tailwind
 * Stripe
-* Jest for testing
-* Heroku for deployment
+
+### Backend
+
+* Express
+* MySQL
+* Sequelize
 
 ## Next Steps
 
+[Trello](https://trello.com/b/UA9UH446/kaylas-buffet) <br />
+[Wireframe](https://balsamiq.cloud/s7jktl8/p4vr5p3/r2278) <br />
+[High-Fidelity-Mockup](https://break-fast.webflow.io/) <br />
+
 ### Steph
 
-* 3 test cases for project
+* Finished role obligations
 
 ### Angel
 
-* Wireframing and prototyping
+* Create wireframe for big screen
+* High fidelity mockup
+* Continual client management
 
 ### Rhys
 
-* PWA research
-* Test case research
+* Create frontend components
+* Add frontend routing
 
 ![EER Diagram](./client/public/assets/mobile-first-buffet-eer.PNG)
