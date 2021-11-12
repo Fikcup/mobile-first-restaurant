@@ -4,7 +4,8 @@
   "description": "A la carte buffet PWA mobile first website with pickup options.",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
+    "client": "cd client && npm start",
+    "start": "concurrently \"node server/server.js\" \"npm run client\"",
     "test": "jest --watch"
   },
   "repository": {
@@ -32,9 +33,12 @@
   "dependencies": {
     "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
+    "concurrently": "^6.3.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.2",
     "sequelize": "^6.8.0",
     "uuid": "^8.3.2"
