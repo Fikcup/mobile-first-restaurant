@@ -21,6 +21,15 @@ Product.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
+        },
+        imgPath: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        price: {
+            type: DataTypes.DECIMAL,
+            allowNull: false,
         }
     },
     {
