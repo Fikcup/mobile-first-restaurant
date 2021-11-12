@@ -4,7 +4,8 @@
   "description": "A la carte buffet PWA mobile first website with pickup options.",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
+    "client": "cd client && npm start",
+    "start": "concurrently \"node server/server.js\" \"npm run client\"",
     "test": "jest --watch"
   },
   "repository": {

@@ -1,4 +1,8 @@
 const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
+
 const sequelize = require('./config/connection');
 const models = require('./models');
 const routes = require('./routes');
@@ -11,6 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(cors());
+app.use(logger('dev'));
 
 app.use(routes);
 
