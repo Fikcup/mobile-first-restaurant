@@ -24,11 +24,10 @@ Product.init(
         },
         imgPath: {
             type: DataTypes.STRING,
-            allowNull: false,
             unique: true,
         },
         price: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false,
         }
     },
