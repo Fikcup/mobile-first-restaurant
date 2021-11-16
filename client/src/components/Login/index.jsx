@@ -5,10 +5,10 @@ const Login = () => {
     return (
         <div>
             <form name="login">
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input type="text" name="email"/>
 
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input type="text" id="password-signup" name="password"/>
 
                 <NavLink to="/me/login/submit">
