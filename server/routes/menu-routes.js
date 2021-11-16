@@ -3,15 +3,18 @@ const axios = require('axios').default;
 
 // route /menu/
 router.get('/', async (req, res) => {
-    const categoryData = await axios.get(`http:/localhost:3001/api/categories`);
+    const response = await axios.get(`http:/localhost:3001/api/categories`)
+    .then((categoryData) => {
+        console.log('Map data into Category component');
+        console.log(categoryData);
+    });
+
+    if (response.ok) {
+        console.log('Axios request working');
+    }
+
     console.log(categoryData);
     console.log('Executing...');
-
-    // {categoryData.map((category) => {
-    //     <Category
-    //         name = {category.name}
-    //     />
-    // })}
 }); 
 
 module.exports = router;
