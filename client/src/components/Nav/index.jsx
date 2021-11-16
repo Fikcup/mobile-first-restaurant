@@ -5,16 +5,16 @@ const Nav = () => {
     return (
         <nav>
             <ul>
-                <NavLink exact to='/' activeClassName='main-nav-active'>
+                <NavLink exact to='/'>
                     <li>Home</li>
                 </NavLink>
-                <NavLink to='/menu' activeClassName='main-nav-active'>
+                <NavLink to='/menu'>
                     <li>Menu</li>
                 </NavLink>
-                <NavLink to='/me' activeClassName='main-nav-active'>
+                <NavLink to='/me'>
                     <li>Me</li>
                 </NavLink>
-                <NavLink to='/cart' activeClassName='main-nav-active'>
+                <NavLink to='/cart'>
                     <li>Cart</li>
                 </NavLink>
             </ul>
