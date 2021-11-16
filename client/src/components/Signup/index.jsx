@@ -19,8 +19,9 @@ const Signup = () => {
                 <label for="password">Password</label>
                 <input type="text" id="password-signup" name="password"/>
 
+                <NavLink to="/me/signup/submit">
                 <button type="submit">Sign Up</button>
-                <a href="/login"></a>
+                </NavLink>
 
                 <NavLink to="/me">
                     <p>Got an account? Log in</p>
