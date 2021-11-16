@@ -4,7 +4,7 @@ const cartController = {
     newCart(req, res) {
         Cart.create(req.body)
             .then((cartData) => {
-                res.json(cartData)
+                res.json(cartData);
             })
             .catch((err) => {
                 console.log(err);
@@ -18,7 +18,7 @@ const cartController = {
             }
         })
             .then((cartData) => {
-                res.json(cartData)
+                res.json(cartData);
             })
             .catch((err) => {
                 console.log(err);
@@ -32,7 +32,7 @@ const cartController = {
             }
         })
             .then((cartProductData) => {
-                res.json(cartProductData)
+                res.json(cartProductData);
             })
             .catch((err) => {
                 console.log(err);
@@ -46,7 +46,7 @@ const cartController = {
             quantity: req.body.quantity
         })
             .then((cartProductData) => {
-                res.json(cartProductData)
+                res.json(cartProductData);
             })
             .catch((err) => {
                 console.log(err);
@@ -60,8 +60,8 @@ const cartController = {
                 productUuid: req.params.productId
             }
         })
-            .then((cartProductData) => {
-                res.json(cartProductData)
+            .then(() => {
+                res.json({ message: 'Product has been removed from cart.' });
             })
             .catch((err) => {
                 console.log(err);
@@ -74,8 +74,8 @@ const cartController = {
                 cartUuid: req.params.cartId
             }
         })
-            .then((cartProductData) => {
-                res.json(cartProductData)
+            .then(() => {
+                res.json({ message: 'All products have been removed from cart.' });
             })
             .catch((err) => {
                 console.log(err);
