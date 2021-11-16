@@ -53,6 +53,21 @@ const cartController = {
                 res.status(500).json(err);
             });
     },
+    removeProductFromCart(req, res) {
+        CartProducts.destroy({
+            where: {
+                cartUuid: req.params.cartId,
+                productUuid: req.params.productId
+            }
+        })
+            .then((cartProductData) => {
+                res.json(cartProductData)
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 };
 
 module.exports = cartController;

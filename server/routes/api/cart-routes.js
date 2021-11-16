@@ -4,6 +4,7 @@ const {
     getOneCart,
     getAllProductsInCart,
     addProductToCart,
+    removeProductFromCart,
 } = require('../../controllers/cart-controller');
 
 // route /api/carts/
@@ -16,6 +17,6 @@ router.route('/:cartId').get(getOneCart);
 router.route('/:cartId/product').get(getAllProductsInCart);
 
 // route/api/carts/:cartId/product/:productId/
-router.route('/:cartId/product/:productId').post(addProductToCart);
+router.route('/:cartId/product/:productId').post(addProductToCart).delete(removeProductFromCart);
 
 module.exports = router;
