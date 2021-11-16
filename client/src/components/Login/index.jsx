@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -10,8 +11,13 @@ const Login = () => {
                 <label for="password">Password</label>
                 <input type="text" id="password-signup" name="password"/>
 
-                <button type="submit">Log In</button>
-                <a href="/signup">No account? Sign up</a>
+                <NavLink to="/me/login/submit">
+                    <button type="submit">Log In</button>
+                </NavLink>
+
+                <NavLink to="/me/signup">
+                    <p>No account? Sign up</p>
+                </NavLink>
             </form>
         </div>
     );
