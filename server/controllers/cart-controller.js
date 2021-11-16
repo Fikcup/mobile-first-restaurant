@@ -68,6 +68,20 @@ const cartController = {
                 res.status(500).json(err);
             });
     },
+    removeAllProductsFromCart(req, res) {
+        CartProducts.destroy({
+            where: {
+                cartUuid: req.params.cartId
+            }
+        })
+            .then((cartProductData) => {
+                res.json(cartProductData)
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 };
 
 module.exports = cartController;
