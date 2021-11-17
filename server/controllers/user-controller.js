@@ -4,7 +4,7 @@ const userController = {
     getOneUser(req, res) {
         User.findOne({
             where: {
-                uuid: req.params.id
+                email: req.params.email
             }
         })
             .then((userData) => {
