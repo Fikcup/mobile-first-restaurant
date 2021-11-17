@@ -64,21 +64,21 @@ module.exports = {
                 uuid: UUIDV1(), 
                 name: 'BLT', 
                 description: 'A classic BLT sandwhich.',
-                category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
                 price: 10.00
             },
             { 
                 uuid: UUIDV1(), 
                 name: 'Egg and Cheese Breakfast Sandwhich', 
                 description: 'Two scrambled eggs and cheddar cheese',
-                category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
                 price: 9.00
             },
             { 
                 uuid: UUIDV1(), 
                 name: 'Bacon, Egg, and Cheese Breakfast Sandwhich', 
                 description: 'Two scrambled eggs topped with bacon strips and cheddar cheese.',
-                category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
                 price: 10.00
             },
             { 

@@ -1,19 +1,42 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
-const Item = (props) => {
+const Item = () => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        async function getAllItemsCategories() {
+            let url = window.location.href;
+            let itemId = window.location.href.substr(url.length - 36, url.length);
+
+            await axios.get(`/api/products/${itemId}`)
+                .then(data => {
+                    setItems(data.data);
+                    console.log(data.data);
+                });
+        }
+
+        getAllItemsCategories();
+    }, [items.uuid]);
+
+    // TODO: add onChange event for quantity
+
     return (
         <div>
-            <img src={props.imgPath} alt={props.name} />
+            <img src={items.imgPath} alt={items.name} />
             <div>
                 <button>-</button>
-                <h2>{props.quantity}</h2>
+                <h2>1</h2>
                 <button>+</button>
 
-                <h2>{props.price}</h2>
+                <h2>{items.price}</h2>
             </div>
-            <h1>{props.name}</h1>
-            <p>{props.description}</p>
-            <button>Add</button>
+            <h1>{items.name}</h1>
+            <p>{items.description}</p>
+            <NavLink to="/cart">
+                <button>Add</button>
+            </NavLink>
         </div>
     );
 }
