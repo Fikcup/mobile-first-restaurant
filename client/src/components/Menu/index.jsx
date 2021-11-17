@@ -20,8 +20,8 @@ const Menu = () => {
         <div>
             {categories.map((category, index) => {
                 return (
-                    <NavLink to={category.uuid}>
-                        <div key={category.name + index}>
+                    <NavLink to={category.uuid} key={category.uuid + index}>
+                        <div>
                             <h1>{category.name}</h1>
                         </div>
                     </NavLink>
