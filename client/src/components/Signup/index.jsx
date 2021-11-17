@@ -1,26 +1,53 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event) => {
+        console.log('Executing...');
+        event.preventDefault();
+
+        const name = document.querySelector('#name-signup').value.trim();
+        const phone = document.querySelector('#phone-signup').value.trim();
+        const email = document.querySelector('#email-signup').value.trim().toLowerCase();
+        const password = document.querySelector('#password-signup').value.trim();
+
+        await axios.post(`/api/users`, {
+            name: name,
+            phone: phone,
+            email: email,
+            password: password
+        })
+            .then(() => {
+                alert('Your account has been created!');
+                navigate('/menu');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
     return (
         <div>
             <form name="signup">
                 <input type="hidden" name="uuid" />
 
-                <label htmlFor="first-name-signup">Name</label>
-                <input type="text" name="name" />
+                <label htmlFor="name-signup">Name</label>
+                <input type="text" name="name-signup" id="name-signup"/>
 
-                <label htmlFor="last-name-signup">Phone</label>
-                <input type="text" name="phone" />
+                <label htmlFor="phone-signup">Phone</label>
+                <input type="text" name="phone-signup" id="phone-signup"/>
 
-                <label htmlFor="email">Email</label>
-                <input type="text" name="email"/>
+                <label htmlFor="email-signup">Email</label>
+                <input type="text" name="email-signup" id="email-signup"/>
 
-                <label htmlFor="password">Password</label>
-                <input type="text" id="password-signup" name="password"/>
+                <label htmlFor="password-signup">Password</label>
+                <input type="text" name="password" id="password-signup" />
 
-                <NavLink to="/me/signup/submit">
-                <button type="submit">Sign Up</button>
+                <NavLink to="/menu">
+                    <button type="submit" onClick={handleSubmit}>Sign Up</button>
                 </NavLink>
 
                 <NavLink to="/me">
