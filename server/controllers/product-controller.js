@@ -24,7 +24,21 @@ const productController = {
                 console.log(err);
                 res.status(500).json(err);
             });
-    }
+    },
+    getAllProductsInCategory(req, res) {
+        Product.findAll({
+            where: {
+                categoryUuid: req.params.categoryId
+            }
+        })
+            .then((userData) => {
+                res.json(userData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 };
 
 module.exports = productController;
