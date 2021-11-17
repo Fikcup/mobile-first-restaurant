@@ -6,11 +6,15 @@ const Menu = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        axios.get(`/api/categories`)
-            .then(data => {
-                setCategories(data.data);
-            });
-    });
+        async function getCategories() {
+            await axios.get(`/api/categories`)
+                .then(data => {
+                    setCategories(data.data);
+                });
+        }
+
+        getCategories();
+    }, [categories.uuid]);
     
     return (
         <div>
