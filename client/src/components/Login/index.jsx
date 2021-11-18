@@ -1,17 +1,32 @@
 import React from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 
 const Login = () => {
+    const navigate = useNavigate();
+
     async function verifyUser(event) {
         event.preventDefault();
     
         const email = document.querySelector('#email-login').value.trim().toLowerCase();
         const password = document.querySelector('#password-login').value.trim();
     
-        await axios.get(`/api/users/${email}`)
+        await axios.post(`/api/users/${email}`, {
+            email: email,
+            password: password
+        })
             .then((userData) => {
-                console.log(userData);
+                if (!userData) {
+                    alert('Your email or password is incorrect.');
+                } else {
+                    if (bcrypt.compareSync(password, userData.data.password)) {
+                        // TODO: sign token
+                        
+                        alert('Successful login!');
+                        navigate('/menu');
+                    }
+                }
             })
             .catch((err) => {
                 console.log(err)
@@ -25,7 +40,7 @@ const Login = () => {
                 <input type="text" name="email" id="email-login"/>
 
                 <label htmlFor="password">Password</label>
-                <input type="text" name="password" id="password-login"/>
+                <input type="password" name="password" id="password-login" aria-autocomplete="list" />
 
                 <NavLink to="/menu">
                     <button type="submit" onClick={verifyUser}>Log In</button>
