@@ -2,9 +2,26 @@ import React from 'react';
 import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const Login = () => {
     const navigate = useNavigate();
+
+    async function sendToken(authToken) {
+        await axios.get(`/api/users/${authToken.id}`, {
+            headers: {
+                'x-access-token': authToken
+            }
+        })
+            .then(() => {
+                alert('Successful login!');
+                navigate('/menu');
+            })
+            .catch((err) => {
+                console.log(err);
+                alert('Account could not be verified, please try again.');
+            })
+    }
 
     async function verifyUser(event) {
         event.preventDefault();
@@ -21,10 +38,9 @@ const Login = () => {
                     alert('Your email or password is incorrect.');
                 } else {
                     if (bcrypt.compareSync(password, userData.data.password)) {
-                        // TODO: sign token
-                        
-                        alert('Successful login!');
-                        navigate('/menu');
+                        let token = jwt.sign({ id: userData.data.uuid}, process.env.REACT_APP_SECRET);
+
+                        sendToken(token);
                     }
                 }
             })
