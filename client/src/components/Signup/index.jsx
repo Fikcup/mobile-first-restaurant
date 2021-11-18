@@ -44,7 +44,7 @@ const Signup = () => {
                 <input type="text" name="email-signup" id="email-signup"/>
 
                 <label htmlFor="password-signup">Password</label>
-                <input type="text" name="password" id="password-signup" />
+                <input type="password" name="password" id="password-signup" aria-autocomplete="list" />
 
                 <NavLink to="/menu">
                     <button type="submit" onClick={handleSubmit}>Sign Up</button>
