@@ -1,10 +1,29 @@
 const { User } = require('../models');
+const bcrypt = require('bcrypt');
 
 const userController = {
+    loginUser(req, res) {
+        User.findOne({
+            attributes: {
+                exclude: ['phone'],
+                include: ['password']
+            },
+            where: {
+                email: req.params.email
+            }
+        })
+            .then((userData) => {
+                res.json(userData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
     getOneUser(req, res) {
         User.findOne({
             where: {
-                email: req.params.email
+                uuid: req.params.id
             }
         })
             .then((userData) => {
