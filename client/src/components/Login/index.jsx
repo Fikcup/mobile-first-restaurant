@@ -16,10 +16,12 @@ const Login = ({ setToken }) => {
             password: password
         })
             .then((token) => {
-                setToken(token);
-                localStorage.setItem('token', token);
-                alert('Successful login!');
-                navigate('/menu');
+                if (token) {
+                    setToken(token);
+                    localStorage.setItem('token', token);
+                    alert('Successful login!');
+                    navigate('/menu');
+                }
             })
             .catch((err) => {
                 console.log(err)

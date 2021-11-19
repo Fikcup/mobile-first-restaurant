@@ -1,26 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
-import jwt from 'jsonwebtoken';
 
-const Signup = () => {
+const Signup = ({ setToken }) => {
     const navigate = useNavigate();
-
-    async function sendToken(authToken) {
-        await axios.get(`/api/users/${authToken.id}`, {
-            headers: {
-                'x-access-token': authToken
-            }
-        })
-            .then(() => {
-                alert('Your account has been created!');
-                navigate('/menu');
-            })
-            .catch((err) => {
-                console.log(err);
-                alert('Account could not be verified, please try again.');
-            })
-    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -36,10 +19,13 @@ const Signup = () => {
             email: email,
             password: password
         })
-            .then((userData) => {
-                let token = jwt.sign({ id: userData.data.uuid}, process.env.REACT_APP_SECRET);
-
-                sendToken(token);
+            .then((token) => {
+                if (token) {
+                    setToken(token);
+                    localStorage.setItem('token', token);
+                    alert('Successful login!');
+                    navigate('/menu');
+                }
             })
             .catch((err) => {
                 console.log(err);

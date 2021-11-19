@@ -46,7 +46,13 @@ const userController = {
     createUser(req, res) {
         User.create(req.body)
             .then((userData) => {
-                res.json(userData);
+                if(!userData) {
+                    res.send('Your form data is invalid. Please try again.');
+                } else {
+                    let token = jwt.sign({ id: userData.uuid}, process.env.SECRET);
+
+                    res.json(token);
+                }
             })
             .catch((err) => {
                 console.log(err);
