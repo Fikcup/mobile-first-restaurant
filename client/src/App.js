@@ -9,6 +9,7 @@ import Signup from './components/Signup';
 import Menu from './components/Menu';
 import Category from './components/Category';
 import Item from './components/Item';
+import Cart from './components/Cart';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -51,7 +52,7 @@ function App() {
         })}
         <Route exact path="/me" element={<Login setToken={setToken} />} />
         <Route exact path="/me/signup" element={<Signup setToken={setToken} />} />
-        <Route exact path="/cart" />
+        <Route exact path="/cart" element={<Cart token={token} />} />
       </Routes>
       <Footer>
         <Nav />
