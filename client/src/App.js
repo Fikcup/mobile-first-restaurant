@@ -13,6 +13,7 @@ import Item from './components/Item';
 function App() {
   const [items, setItems] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [token, setToken] = useState(localStorage.getItem('token'));
 
   useEffect(() => {
     async function getAllMenu() {
@@ -31,7 +32,7 @@ function App() {
     }
 
     getAllMenu();
-  }, [items.uuid, categories.uuid]);
+  }, []);
   // https://dmitripavlutin.com/react-useeffect-infinite-loop/
 
   return (
@@ -49,7 +50,7 @@ function App() {
 
           return <Route exact path={link} key={item.uuid} element={<Item/>}/>
         })}
-        <Route exact path="/me" element={<Login/>} />
+        <Route exact path="/me" element={<Login setToken={setToken}/>} />
         <Route exact path="/me/signup" element={<Signup/>} />
         <Route exact path="/cart" />
       </Routes>
