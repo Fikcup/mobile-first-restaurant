@@ -14,7 +14,7 @@ const Menu = () => {
         }
 
         getCategories();
-    }, [categories.uuid]);
+    }, []);
     
     return (
         <div>
