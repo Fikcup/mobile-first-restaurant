@@ -33,7 +33,6 @@ function App() {
 
     getAllMenu();
   }, []);
-  // https://dmitripavlutin.com/react-useeffect-infinite-loop/
 
   return (
     <Router>
@@ -50,8 +49,8 @@ function App() {
 
           return <Route exact path={link} key={item.uuid} element={<Item/>}/>
         })}
-        <Route exact path="/me" element={<Login setToken={setToken}/>} />
-        <Route exact path="/me/signup" element={<Signup/>} />
+        <Route exact path="/me" element={<Login setToken={setToken} />} />
+        <Route exact path="/me/signup" element={<Signup setToken={setToken} />} />
         <Route exact path="/cart" />
       </Routes>
       <Footer>
