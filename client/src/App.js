@@ -26,10 +26,7 @@ function App() {
       await axios.get(`/api/products`)
         .then(data => {
           setItems(data.data);
-        })
-      
-      console.log(items);
-      console.log(categories);
+        });
     }
 
     getAllMenu();
@@ -52,7 +49,7 @@ function App() {
         })}
         <Route exact path="/me" element={<Login setToken={setToken} />} />
         <Route exact path="/me/signup" element={<Signup setToken={setToken} />} />
-        <Route exact path="/cart" element={<Cart token={token} />} />
+        <Route exact path="/cart" element={token ? <Cart /> : <Login setToken={setToken} />} />
       </Routes>
       <Footer>
         <Nav />
