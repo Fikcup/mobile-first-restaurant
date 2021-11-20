@@ -10,6 +10,8 @@ import Menu from './components/Menu';
 import Category from './components/Category';
 import Item from './components/Item';
 import Cart from './components/Cart';
+import Main from './components/Main';
+import Account from './components/Account';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -36,7 +38,7 @@ function App() {
     <Router>
     <div className="App">
       <Routes>
-        <Route exact path="/" />
+        <Route exact path="/" element={<Main />} />
         <Route exact path="/menu" element={<Menu/>} />
         {categories.map((category) => {
           let link = `/menu/${category.uuid}`;
@@ -47,8 +49,8 @@ function App() {
 
           return <Route exact path={link} key={item.uuid} element={<Item/>}/>
         })}
-        <Route exact path="/me" element={<Login setToken={setToken} />} />
-        <Route exact path="/me/signup" element={<Signup setToken={setToken} />} />
+        <Route exact path="/me" element={token ? <Account token={token} /> : <Login setToken={setToken} />} />
+        <Route exact path="/me/signup" element={token ? <Account token={token} /> : <Signup setToken={setToken} />} />
         <Route exact path="/cart" element={token ? <Cart /> : <Login setToken={setToken} />} />
       </Routes>
       <Footer>
