@@ -6,8 +6,12 @@ const Cart = ({ token }) => {
     // TODO : send token in all cart header requests to verify with backend middleware
     const [cartProducts, setCartProducts] = useState([]);
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
+
+    function deleteItem() {
+        // TODO: grab cartProducts uuid to be deleted
+        // TODO: send item uuid to the delete cartproducts route
+    }
 
     useEffect(() => {
         (async () => {
@@ -15,17 +19,15 @@ const Cart = ({ token }) => {
             const user = decoded.id;
 
             const cartData = await axios.get(`/api/carts/${user}`);
-            setCart(cartData.data.uuid);
 
-            const cartProductsData = await axios.get(`/api/carts/${cart}/product`);
-            setCartProducts(cartProductsData.data);
+            const cartProductsData = await axios.get(`/api/carts/${cartData.data.uuid}/product`);
 
-            if (cartProducts) {
+            if (cartProductsData?.data?.length > 0) {
                 let temp = [];
                 let tempTotal = 0;
 
-                for (let i = 0; i < cartProducts.length; i++) {
-                    await axios.get(`/api/products/${cartProducts[i].productUuid}`)
+                for (const data of cartProductsData.data) {
+                    await axios.get(`/api/products/${data.productUuid}`)
                         .then((productData) => {
                             temp.push(productData.data);
                             tempTotal += productData.data.price;
@@ -34,13 +36,13 @@ const Cart = ({ token }) => {
                             console.log(err);
                         });
                 }
-
                 setProducts(temp);
                 setTotal(tempTotal);
+                setCartProducts(cartProductsData.data);
             }
         })();
 
-    }, []);
+    }, [token]);
 
     return (
         <div>
@@ -61,12 +63,13 @@ const Cart = ({ token }) => {
                     return (
                         <div key={cartProduct + index}>
                             <h3>{cartProduct.quantity}</h3>
+                            <button onClick={deleteItem}>Remove</button>
                         </div>
                     );
                 })}
             </div>
 
-            <h2>Order Total: {total}</h2>
+            <h2>Order Total: ${total}</h2>
         </div>
     );
 }
