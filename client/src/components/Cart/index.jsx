@@ -8,22 +8,6 @@ const Cart = ({ token }) => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
 
-    async function mapProducts(product) {
-        if (cartProducts) {
-            let temp = [];
-            for (let i = 0; i < product.length; i++) {
-                await axios.get(`/api/products/${product[i].productUuid}`)
-                    .then((productData) => {
-                        temp.push(productData.data);
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-            }
-            setProducts(temp);
-        }
-    }
-
     useEffect(() => {
         async function getCartProducts(token) {
             const decoded = jwt.verify(JSON.parse(token).data, process.env.REACT_APP_SECRET);
@@ -46,8 +30,24 @@ const Cart = ({ token }) => {
                 });
         }
 
+        async function getProductInfo(product) {
+            if (product) {
+                let temp = [];
+                for (let i = 0; i < product.length; i++) {
+                    await axios.get(`/api/products/${product[i].productUuid}`)
+                        .then((productData) => {
+                            temp.push(productData.data);
+                            setProducts(temp);
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                }
+            }
+        }
+
         getCartProducts(token);
-        mapProducts(cartProducts);
+        getProductInfo(cartProducts);
     }, []);
 
     return (
