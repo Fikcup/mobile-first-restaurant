@@ -3,6 +3,11 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const userController = {
+    /*
+        * Grabs a user by email and compares to hashed password
+        *
+        * @return {Token}
+    */
     loginUser(req, res) {
         User.findOne({
             attributes: {
@@ -29,6 +34,11 @@ const userController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Get one user by uuid
+        *
+        * @return {Object}
+    */
     getOneUser(req, res) {
         User.findOne({
             where: {
@@ -43,6 +53,11 @@ const userController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Create user and sign them a token
+        *
+        * @return {Object}
+    */
     createUser(req, res) {
         User.create(req.body)
             .then((userData) => {
@@ -59,6 +74,11 @@ const userController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Users can update their own information
+        *
+        * @return {Message}
+    */
     updateUser(req, res) {
         User.update(req.body, {
             where: {
@@ -74,6 +94,11 @@ const userController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Users can delete their own account
+        *
+        * @return {Message}
+    */
     deleteUser(req, res) {
         User.destroy({
             where: {
