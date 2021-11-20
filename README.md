@@ -36,7 +36,7 @@
 
 ### Rhys
 
-* Create frontend components
-* Add frontend routing
+* Add frontend routing for cart and main page
+* Create deals and suggested items
 
 ![EER Diagram](./client/public/assets/mobile-first-buffet-eer.PNG)
