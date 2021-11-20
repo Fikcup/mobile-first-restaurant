@@ -7,47 +7,39 @@ const Cart = ({ token }) => {
     const [cartProducts, setCartProducts] = useState([]);
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        async function getCartProducts(token) {
+        (async () => {
             const decoded = jwt.verify(JSON.parse(token).data, process.env.REACT_APP_SECRET);
             const user = decoded.id;
 
-            await axios.get(`/api/carts/${user}`)
-                .then((cartData) => {
-                    setCart(cartData.data.uuid);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+            const cartData = await axios.get(`/api/carts/${user}`);
+            setCart(cartData.data.uuid);
 
-            await axios.get(`/api/carts/${cart}/product`)
-                .then((cartData) => {
-                    setCartProducts(cartData.data);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        }
+            const cartProductsData = await axios.get(`/api/carts/${cart}/product`);
+            setCartProducts(cartProductsData.data);
 
-        async function getProductInfo(product) {
-            if (product) {
+            if (cartProducts) {
                 let temp = [];
-                for (let i = 0; i < product.length; i++) {
-                    await axios.get(`/api/products/${product[i].productUuid}`)
+                let tempTotal = 0;
+
+                for (let i = 0; i < cartProducts.length; i++) {
+                    await axios.get(`/api/products/${cartProducts[i].productUuid}`)
                         .then((productData) => {
                             temp.push(productData.data);
-                            setProducts(temp);
+                            tempTotal += productData.data.price;
                         })
                         .catch((err) => {
                             console.log(err);
                         });
                 }
-            }
-        }
 
-        getCartProducts(token);
-        getProductInfo(cartProducts);
+                setProducts(temp);
+                setTotal(tempTotal);
+            }
+        })();
+
     }, []);
 
     return (
@@ -74,7 +66,7 @@ const Cart = ({ token }) => {
                 })}
             </div>
 
-            <h2>Order Total: {}</h2>
+            <h2>Order Total: {total}</h2>
         </div>
     );
 }
