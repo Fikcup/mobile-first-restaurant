@@ -24,7 +24,7 @@ const cartController = {
     getOneCart(req, res) {
         Cart.findOne({
             where: {
-                uuid: req.params.cartId
+                userUuid: req.params.userId
             }
         })
             .then((cartData) => {

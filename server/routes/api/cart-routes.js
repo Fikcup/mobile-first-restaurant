@@ -11,8 +11,8 @@ const {
 // route /api/carts/
 router.route('/').post(newCart);
 
-// route/api/carts/:cartId/
-router.route('/:cartId').get(getOneCart);
+// route/api/carts/:userId/
+router.route('/:userId').get(getOneCart);
 
 // route/api/carts/:cartId/product/
 router.route('/:cartId/product').get(getAllProductsInCart).delete(removeAllProductsFromCart);
