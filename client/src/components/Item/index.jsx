@@ -18,7 +18,7 @@ const Item = () => {
         }
 
         getAllItemsCategories();
-    }, [items.uuid]);
+    }, []);
 
     // TODO: add onChange event for quantity
 

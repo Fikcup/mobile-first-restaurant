@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
-import bcrypt from 'bcryptjs';
 
-const Login = () => {
+const Login = ({ setToken }) => {
     const navigate = useNavigate();
 
     async function verifyUser(event) {
@@ -16,16 +15,12 @@ const Login = () => {
             email: email,
             password: password
         })
-            .then((userData) => {
-                if (!userData) {
-                    alert('Your email or password is incorrect.');
-                } else {
-                    if (bcrypt.compareSync(password, userData.data.password)) {
-                        // TODO: sign token
-                        
-                        alert('Successful login!');
-                        navigate('/menu');
-                    }
+            .then((token) => {
+                if (token) {
+                    setToken(token);
+                    localStorage.setItem('token', token);
+                    alert('Successful login!');
+                    navigate('/menu');
                 }
             })
             .catch((err) => {

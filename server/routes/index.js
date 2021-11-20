@@ -2,7 +2,6 @@ const router = require('express').Router();
 const apiRoutes = require('./api');
 const mainRoutes = require('./main-routes');
 const cartRoutes = require('./cart-routes');
-const meRoutes = require('./me-routes');
 
 // route /api/
 router.use('/api', apiRoutes);
@@ -12,9 +11,6 @@ router.use('/', mainRoutes);
 
 // route /cart/
 router.use('/cart', cartRoutes);
-
-// route /me/
-router.use('/me', meRoutes);
 
 // invalid route response
 router.use('/', (req, res) => {

@@ -2,11 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = ({ setToken }) => {
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
-        console.log('Executing...');
         event.preventDefault();
 
         const name = document.querySelector('#name-signup').value.trim();
@@ -20,9 +19,13 @@ const Signup = () => {
             email: email,
             password: password
         })
-            .then(() => {
-                alert('Your account has been created!');
-                navigate('/menu');
+            .then((token) => {
+                if (token) {
+                    setToken(token);
+                    localStorage.setItem('token', token);
+                    alert('Successful login!');
+                    navigate('/menu');
+                }
             })
             .catch((err) => {
                 console.log(err);
