@@ -1,6 +1,11 @@
 const { Cart, CartProducts } = require('../models');
 
 const cartController = {
+    /*
+        * Cart initializes
+        *
+        * @return {Object}
+    */
     newCart(req, res) {
         Cart.create(req.body)
             .then((cartData) => {
@@ -11,6 +16,11 @@ const cartController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Get user attached to cart
+        *
+        * @return {Object}
+    */
     getOneCart(req, res) {
         Cart.findOne({
             where: {
@@ -25,6 +35,11 @@ const cartController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Get all products in a user's cart
+        *
+        * @return {Array}
+    */
     getAllProductsInCart(req, res) {
         CartProducts.findAll({
             where: {
@@ -39,6 +54,11 @@ const cartController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Add an item to a cart
+        *
+        * @return {Object}
+    */
     addProductToCart(req, res) {
         CartProducts.create({
             cartUuid: req.params.cartId,
@@ -53,6 +73,11 @@ const cartController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Remove an item from the cart
+        *
+        * @return {Message}
+    */
     removeProductFromCart(req, res) {
         CartProducts.destroy({
             where: {
@@ -68,6 +93,11 @@ const cartController = {
                 res.status(500).json(err);
             });
     },
+    /*
+        * Remove all items from the cart
+        *
+        * @return {Message}
+    */
     removeAllProductsFromCart(req, res) {
         CartProducts.destroy({
             where: {
