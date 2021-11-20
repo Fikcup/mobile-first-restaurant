@@ -18,7 +18,7 @@ const Category = () => {
         }
 
         getAllItemsCategories();
-    }, [items.uuid]);
+    }, []);
 
     return(
         <div>

@@ -1,5 +1,6 @@
 const { User } = require('../models');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const userController = {
     loginUser(req, res) {
@@ -13,7 +14,15 @@ const userController = {
             }
         })
             .then((userData) => {
-                res.json(userData);
+                if (!userData) {
+                    res.send('Your email or password is incorrect.');
+                } else {
+                    if (bcrypt.compareSync(req.body.password, userData.password)) {
+                        let token = jwt.sign({ id: userData.uuid}, process.env.SECRET);
+
+                        res.json(token);
+                    }
+                }
             })
             .catch((err) => {
                 console.log(err);
@@ -37,7 +46,13 @@ const userController = {
     createUser(req, res) {
         User.create(req.body)
             .then((userData) => {
-                res.json(userData);
+                if(!userData) {
+                    res.send('Your form data is invalid. Please try again.');
+                } else {
+                    let token = jwt.sign({ id: userData.uuid}, process.env.SECRET);
+
+                    res.json(token);
+                }
             })
             .catch((err) => {
                 console.log(err);
