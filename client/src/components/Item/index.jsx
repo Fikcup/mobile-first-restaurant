@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 const Item = ({ token }) => {
     const [items, setItems] = useState([]);
     const [cart, setCart] = useState([]);
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
 
     async function addToCart(event) {
         event.preventDefault();
@@ -17,6 +17,12 @@ const Item = ({ token }) => {
             .then((cartData) => {
                 console.log(cartData);
             })
+    }
+
+    async function quantityDown() {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
     }
 
     useEffect(() => {
@@ -50,9 +56,9 @@ const Item = ({ token }) => {
         <div>
             <img src={items.imgPath} alt={items.name} />
             <div>
-                <button>-</button>
-                <h2>1</h2>
-                <button>+</button>
+                <button onClick={quantityDown}>-</button>
+                <h2>{quantity}</h2>
+                <button onClick={() => setQuantity(quantity + 1)}>+</button>
 
                 <h2>{items.price}</h2>
             </div>
