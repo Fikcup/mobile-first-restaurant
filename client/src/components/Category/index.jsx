@@ -40,7 +40,7 @@ const Category = ({ token }) => {
 
         getAllItemsCategories();
         decodeToken();
-    }, []);
+    }, [token]);
 
     return(
         <div>
