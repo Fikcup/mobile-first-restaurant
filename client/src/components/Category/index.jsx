@@ -5,13 +5,12 @@ import jwt from 'jsonwebtoken';
 
 const Category = ({ token }) => {
     const [items, setItems] = useState([]);
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
 
     async function addToCart(event) {
         event.preventDefault();
 
         const item = event.target.parentNode.id;
-        console.log(item);
 
         await axios.post(`/api/carts/${cart}/product/${item}`)
             .then((cartData) => {
