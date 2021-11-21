@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken';
 
 const Menu = ({ token }) => {
     const [categories, setCategories] = useState([]);
-    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         async function getCategories() {
@@ -15,23 +14,8 @@ const Menu = ({ token }) => {
                 });
         }
 
-        async function createCart() {
-            if (token && !cart) {
-                const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
-                const user = decoded.id;
-
-                await axios.post(`/api/carts`, {
-                    userUuid: user
-                })
-                    .then((cartData) => {
-                        setCart(cartData.data.uuid);
-                    });
-            }
-        }
-
         getCategories();
-        createCart();
-    }, [cart, token]);
+    }, []);
     
     return (
         <div>

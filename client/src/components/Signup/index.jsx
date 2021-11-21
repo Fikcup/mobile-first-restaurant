@@ -23,6 +23,11 @@ const Signup = ({ setToken }) => {
                 if (token) {
                     setToken(token.data);
                     localStorage.setItem('token', token.data);
+
+                    axios.post(`/api/carts`, {
+                        userUuid: token.data.uuid
+                    });
+                    
                     alert('Successful login!');
                     navigate('/menu');
                 }
