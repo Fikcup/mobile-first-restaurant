@@ -39,7 +39,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Main />} />
-        <Route exact path="/menu" element={<Menu/>} />
+        <Route exact path="/menu" element={<Menu token={token} />} />
         {categories.map((category) => {
           let link = `/menu/${category.uuid}`;
           return <Route exact path={link} key={category.uuid} element={<Category token={token} />}/>
@@ -47,7 +47,7 @@ function App() {
         {items.map((item) => {
           let link = `/menu/item/${item.uuid}`;
 
-          return <Route exact path={link} key={item.uuid} element={<Item token={token}/>}/>
+          return <Route exact path={link} key={item.uuid} element={<Item token={token} />}/>
         })}
         <Route exact path="/me" element={token ? <Account token={token} /> : <Login setToken={setToken} />} />
         <Route exact path="/me/signup" element={token ? <Account token={token} /> : <Signup setToken={setToken} />} />
