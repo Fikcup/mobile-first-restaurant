@@ -6,11 +6,29 @@ const Cart = ({ token }) => {
     // TODO : send token in all cart header requests to verify with backend middleware
     const [cartProducts, setCartProducts] = useState([]);
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
+    const [updated, setUpdated] = useState();
 
-    function deleteItem() {
-        // TODO: grab cartProducts uuid to be deleted
-        // TODO: send item uuid to the delete cartproducts route
+    async function deleteItem(event) {
+        const cartProduct = event.target.parentNode.id;
+
+        await axios.delete(`/api/carts/${cart}/product/${cartProduct}`)
+            .then((data) => {
+                console.log(data);
+            });
+
+        let products = cartProducts;
+
+        for (const id of products) {
+            if (id.productUuid === cartProduct) {
+                let index = products.indexOf(id);
+                products.splice(index, 1);
+            }
+        }
+        setCartProducts(products);
+        setUpdated(true);
+        window.location.reload();
     }
 
     useEffect(() => {
@@ -38,11 +56,12 @@ const Cart = ({ token }) => {
                 }
                 setProducts(temp);
                 setTotal(tempTotal);
+                setCart(cartData.data.uuid);
                 setCartProducts(cartProductsData.data);
             }
         })();
 
-    }, [token]);
+    }, [token, updated]);
 
     return (
         <div>
@@ -51,19 +70,19 @@ const Cart = ({ token }) => {
             <div>
                 {products.map((product, index) => {
                     return (
-                        <div key={product.uuid + index}>
+                        <div id={product.uuid} key={product.uuid + index}>
                             <h2>{product.name}</h2>
                             <img src={product.imgPath} alt={product.name} />
                             <h3>{product.price}</h3>
+                            <button onClick={deleteItem}>Remove</button>
                         </div>
                     );
                 })}
 
                 {cartProducts.map((cartProduct, index) => {
                     return (
-                        <div key={cartProduct + index}>
+                        <div key={cartProduct.uuid + index}>
                             <h3>{cartProduct.quantity}</h3>
-                            <button onClick={deleteItem}>Remove</button>
                         </div>
                     );
                 })}
