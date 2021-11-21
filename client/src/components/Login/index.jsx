@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 
 const Login = ({ setToken }) => {
     const navigate = useNavigate();
@@ -17,11 +18,14 @@ const Login = ({ setToken }) => {
         })
             .then((token) => {
                 if (token) {
-                    setToken(token.data);
                     localStorage.setItem('token', token.data);
+                    setToken(localStorage.getItem('token'));
+
+                    const decoded = jwt.verify(token.data, process.env.REACT_APP_SECRET);
+                    const user = decoded.id;
 
                     axios.post(`/api/carts`, {
-                        userUuid: token.data.uuid
+                        userUuid: user
                     });
 
                     alert('Successful login!');
