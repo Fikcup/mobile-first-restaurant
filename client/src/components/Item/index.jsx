@@ -13,7 +13,9 @@ const Item = ({ token }) => {
 
         const item = event.target.id;
 
-        await axios.post(`/api/carts/${cart}/product/${item}`)
+        await axios.post(`/api/carts/${cart}/product/${item}`, {
+            quantity: quantity
+        })
             .then((cartData) => {
                 console.log(cartData);
             })
@@ -42,16 +44,13 @@ const Item = ({ token }) => {
             await axios.get(`/api/products/${itemId}`)
                 .then(data => {
                     setItems(data.data);
-                    console.log(data.data);
                 });
         }
 
         getAllItemsCategories();
         decodeToken();
-    }, []);
-
-    // TODO: add onChange event for quantity
-
+    }, [token]);
+    
     return (
         <div>
             <img src={items.imgPath} alt={items.name} />
