@@ -1,13 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 
 const Category = ({ token }) => {
+    const navigate = useNavigate();
+
     const [items, setItems] = useState([]);
     const [cart, setCart] = useState([]);
 
     async function addToCart(event) {
+        event.preventDefault();
+
+        if (!token) {
+            navigate('/me');
+        }
+
         event.preventDefault();
 
         const item = event.target.parentNode.id;
@@ -20,11 +28,13 @@ const Category = ({ token }) => {
 
     useEffect(() => {
         async function decodeToken() {
-            const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
-            const user = decoded.id;
-            const cartData = await axios.get(`/api/carts/${user}`);
+            if (token) {
+                const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
+                const user = decoded.id;
+                const cartData = await axios.get(`/api/carts/${user}`);
 
-            setCart(cartData.data.uuid);
+                setCart(cartData.data.uuid);
+            }
         }
 
         async function getAllItemsCategories() {
