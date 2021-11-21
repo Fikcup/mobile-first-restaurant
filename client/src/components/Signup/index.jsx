@@ -22,7 +22,7 @@ const Signup = ({ setToken }) => {
             .then((token) => {
                 if (token) {
                     setToken(token);
-                    localStorage.setItem('token', token);
+                    localStorage.setItem('token', JSON.stringify(token));
                     alert('Successful login!');
                     navigate('/menu');
                 }
