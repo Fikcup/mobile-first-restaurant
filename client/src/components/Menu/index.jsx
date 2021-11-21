@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 const Menu = ({ token }) => {
     const [categories, setCategories] = useState([]);
@@ -13,7 +14,17 @@ const Menu = ({ token }) => {
                 });
         }
 
+        async function createCart() {
+            const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
+            const user = decoded.id;
+
+            await axios.post(`/api/carts`, {
+                userUuid: user
+            });
+        }
+
         getCategories();
+        createCart();
     }, []);
     
     return (
