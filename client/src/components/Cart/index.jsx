@@ -89,6 +89,7 @@ const Cart = ({ token }) => {
             </div>
 
             <h2>Order Total: ${total}</h2>
+            <button>Checkout</button>
         </div>
     );
 }
