@@ -23,7 +23,7 @@ const userController = {
                     res.send('Your email or password is incorrect.');
                 } else {
                     if (bcrypt.compareSync(req.body.password, userData.password)) {
-                        let token = jwt.sign({ id: userData.uuid}, process.env.SECRET);
+                        let token = jwt.sign({ id: userData.uuid }, process.env.SECRET);
 
                         res.json(token);
                     }
@@ -64,7 +64,7 @@ const userController = {
                 if(!userData) {
                     res.send('Your form data is invalid. Please try again.');
                 } else {
-                    let token = jwt.sign({ id: userData.uuid}, process.env.SECRET);
+                    let token = jwt.sign({ id: userData.uuid }, process.env.SECRET);
 
                     res.json(token);
                 }

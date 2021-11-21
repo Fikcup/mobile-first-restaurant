@@ -1,15 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 
 const Item = ({ token }) => {
+    const navigate = useNavigate();
+
     const [items, setItems] = useState([]);
     const [cart, setCart] = useState([]);
     const [quantity, setQuantity] = useState(1);
 
     async function addToCart(event) {
         event.preventDefault();
+
+        if (!token) {
+            navigate('/me');
+        }
 
         const item = event.target.id;
 
@@ -29,7 +35,7 @@ const Item = ({ token }) => {
 
     useEffect(() => {
         async function decodeToken() {
-            const decoded = jwt.verify(JSON.parse(token).data, process.env.REACT_APP_SECRET);
+            const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
             const user = decoded.id;
 
             const cartData = await axios.get(`/api/carts/${user}`);
