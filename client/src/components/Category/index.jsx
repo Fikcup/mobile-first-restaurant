@@ -28,12 +28,16 @@ const Category = ({ token }) => {
 
     useEffect(() => {
         async function decodeToken() {
-            if (token) {
+            if (token !== null) {
                 const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
                 const user = decoded.id;
+
                 const cartData = await axios.get(`/api/carts/${user}`);
 
-                setCart(cartData.data.uuid);
+                if (cartData.data !== null) {
+                    setCart(cartData.data.uuid);
+                }
+                console.log(cart);
             }
         }
 
