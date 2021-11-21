@@ -38,26 +38,28 @@ const Cart = ({ token }) => {
 
             const cartData = await axios.get(`/api/carts/${user}`);
 
-            const cartProductsData = await axios.get(`/api/carts/${cartData.data.uuid}/product`);
+            if (cartData.data) {
+                const cartProductsData = await axios.get(`/api/carts/${cartData.data.uuid}/product`);
 
-            if (cartProductsData?.data?.length > 0) {
-                let temp = [];
-                let tempTotal = 0;
+                if (cartProductsData?.data?.length > 0) {
+                    let temp = [];
+                    let tempTotal = 0;
 
-                for (const data of cartProductsData.data) {
-                    await axios.get(`/api/products/${data.productUuid}`)
-                        .then((productData) => {
-                            temp.push(productData.data);
-                            tempTotal += productData.data.price;
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
+                    for (const data of cartProductsData.data) {
+                        await axios.get(`/api/products/${data.productUuid}`)
+                            .then((productData) => {
+                                temp.push(productData.data);
+                                tempTotal += productData.data.price;
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            });
+                    }
+                    setProducts(temp);
+                    setTotal(tempTotal);
+                    setCart(cartData.data.uuid);
+                    setCartProducts(cartProductsData.data);
                 }
-                setProducts(temp);
-                setTotal(tempTotal);
-                setCart(cartData.data.uuid);
-                setCartProducts(cartProductsData.data);
             }
         })();
 
