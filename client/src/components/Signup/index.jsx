@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { NavLink, useNavigate } from 'react-router-dom';
+import jwt from 'jsonwebtoken';
 
 const Signup = ({ setToken }) => {
     const navigate = useNavigate();
