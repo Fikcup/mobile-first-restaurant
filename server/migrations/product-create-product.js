@@ -123,6 +123,46 @@ module.exports = {
                 category_uuid: '5bcead9a-4104-11ec-973a-0242ac130003',
                 image: 'https://drive.google.com/uc?export=view&id=1wVD8sqPbpYTdo86PHLjjnKu_RNyOWoJs',
                 price: 1.50
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Americano', 
+                description: 'Robust, dark roast espresso topped off with water.',
+                category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
+                imgPath: '',
+                price: 4.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Cappuccino', 
+                description: 'Robust, dark roast espresso with 2% milk and ample foam.',
+                category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
+                imgPath: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Iced Coffee', 
+                description: 'Coffee on the rocks.',
+                category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
+                imgPath: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Fancy Hot Chocolate', 
+                description: 'Sweet and rich hot chocolate topped with whipped cream.',
+                category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
+                imgPath: '',
+                price: 4.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Fountain Drink', 
+                description: 'Coke, Dr. Pepper, Sprite, Iced Tea, Water.',
+                category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
+                imgPath: '',
+                price: 2.50
             }
         ]);
     },
