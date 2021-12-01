@@ -129,7 +129,7 @@ module.exports = {
                 name: 'Americano', 
                 description: 'Robust, dark roast espresso topped off with water.',
                 category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
-                imgPath: '',
+                imgPath: 'https://drive.google.com/uc?export=view&id=1WhGDeb4YOSdMIITjVefg35Pwg74FndfF',
                 price: 4.00
             },
             { 
@@ -137,7 +137,7 @@ module.exports = {
                 name: 'Cappuccino', 
                 description: 'Robust, dark roast espresso with 2% milk and ample foam.',
                 category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
-                imgPath: '',
+                imgPath: 'https://drive.google.com/uc?export=view&id=1qTjZgli4hUEq5HzWPQO-hskX53fYFGYQ',
                 price: 6.00
             },
             { 
@@ -145,7 +145,7 @@ module.exports = {
                 name: 'Iced Coffee', 
                 description: 'Coffee on the rocks.',
                 category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
-                imgPath: '',
+                imgPath: 'https://drive.google.com/uc?export=view&id=1GahkJOrPPpu4MxVFNgVHJiIyyVpuenx0',
                 price: 6.00
             },
             { 
@@ -153,7 +153,7 @@ module.exports = {
                 name: 'Fancy Hot Chocolate', 
                 description: 'Sweet and rich hot chocolate topped with whipped cream.',
                 category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
-                imgPath: '',
+                imgPath: 'https://drive.google.com/uc?export=view&id=1N0QrO4-SXu8Cq3kJfQe34dm7RNFWX5M0',
                 price: 4.00
             },
             { 
@@ -161,7 +161,7 @@ module.exports = {
                 name: 'Fountain Drink', 
                 description: 'Coke, Dr. Pepper, Sprite, Iced Tea, Water.',
                 category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
-                imgPath: '',
+                imgPath: 'https://drive.google.com/uc?export=view&id=1kNKSzSv_1QcR7kMV7V9L_Pz8RQLmzxzc',
                 price: 2.50
             }
         ]);
