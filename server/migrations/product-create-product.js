@@ -257,7 +257,7 @@ module.exports = {
                 name: 'Denver', 
                 description: 'Two scrambled eggs, cheddar cheese, green bell peppers, and country potatoes.',
                 category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1w-U_cm1DNxQIL_WP5cesp5MAxnJG8epG',
                 price: 11.50
             },
             { 
@@ -265,7 +265,7 @@ module.exports = {
                 name: 'Shredded Beef Skillet', 
                 description: 'Two scrambled eggs, chunks of shredded beef, bell peppers and country potatoes.',
                 category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1hKs_8CfeeOXZT8tiqxTNAXLc-t0dw_Z1',
                 price: 14.00
             },
             { 
@@ -273,7 +273,7 @@ module.exports = {
                 name: 'Arnold Bennette', 
                 description: 'Two scrambled eggs, haddock, fresh herbs.',
                 category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1AqfpZM2nOMXFf-rOnUv6CjXZ-_pGZrlQ',
                 price: 14.00
             },
             { 
@@ -281,7 +281,7 @@ module.exports = {
                 name: 'Sunny', 
                 description: 'Two sunny side up eggs over sliced tomatoes and onions.',
                 category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=13rn011C-99qABrnZhb6iHu6khk6pjRMl',
                 price: 10.00
             },
             { 
@@ -289,7 +289,7 @@ module.exports = {
                 name: 'Tomato', 
                 description: 'Four scrambled eggs, tomatoes, bell peppers, onions.',
                 category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1h5CrCMDQxsNFbWGaQIdb5FYz-XW14O-L',
                 price: 11.50
             }
         ]);
