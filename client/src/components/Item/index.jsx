@@ -63,7 +63,9 @@ const Item = ({ token }) => {
     
     return (
         <div>
-            <img src={items.image} alt={items.name} />
+            <img src={items.image} alt={items.name} className="product-image" />
+            <h1>{items.name}</h1>
+            <p>{items.description}</p>
             <div>
                 <button onClick={quantityDown}>-</button>
                 <h2>{quantity}</h2>
@@ -71,8 +73,6 @@ const Item = ({ token }) => {
 
                 <h2>{items.price}</h2>
             </div>
-            <h1>{items.name}</h1>
-            <p>{items.description}</p>
             <NavLink to="/cart">
                 <button id={items.uuid} onClick={addToCart}>Add</button>
             </NavLink>
