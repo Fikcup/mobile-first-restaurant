@@ -163,6 +163,46 @@ module.exports = {
                 category_uuid: '683f1574-4104-11ec-973a-0242ac130003',
                 image: 'https://drive.google.com/uc?export=view&id=1kNKSzSv_1QcR7kMV7V9L_Pz8RQLmzxzc',
                 price: 2.50
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Fruit Shebang', 
+                description: 'Strawberries, raspberries, and blueberries over old fashioned oats.',
+                category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 7.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Sliced Bananas and Oats', 
+                description: 'Sliced bananas served over old fashioned oats.',
+                category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Blueberry Oats', 
+                description: 'Farm fresh blueberries served over old fashioned oats.',
+                category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Raspberry Oats', 
+                description: 'Fresh, juicy raspberries served over old fashioned oats.',
+                category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Plain Oats', 
+                description: 'Old fashioned oats served with sides of maple syrup and brown sugar.',
+                category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 5.00
             }
         ]);
     },
