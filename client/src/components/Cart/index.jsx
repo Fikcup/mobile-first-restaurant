@@ -74,7 +74,7 @@ const Cart = ({ token }) => {
                     return (
                         <div id={product.uuid} key={product.uuid + index}>
                             <h2>{product.name}</h2>
-                            <img src={product.imgPath} alt={product.name} />
+                            <img src={product.image} alt={product.name} className="product-image" />
                             <h3>{product.price}</h3>
                             <button onClick={deleteItem}>Remove</button>
                         </div>
