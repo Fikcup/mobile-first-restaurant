@@ -291,6 +291,70 @@ module.exports = {
                 category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
                 image: 'https://drive.google.com/uc?export=view&id=1h5CrCMDQxsNFbWGaQIdb5FYz-XW14O-L',
                 price: 11.50
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'The Whole Bit', 
+                description: 'Berries, chocolate syrup, and whipped cream over buttermilk waffles.',
+                category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
+                image: '',
+                price: 7.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Sliced Bananas', 
+                description: 'Sliced bananas on a bed of soft whipped cream over buttermilk waffles.',
+                category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Berries and Cream', 
+                description: 'Berries with whipped cream over buttermilk waffles.',
+                category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Blueberry', 
+                description: 'Blueberries topped with whipped cream over buttermilk waffles.',
+                category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Chocolate and Cream', 
+                description: 'Warm chocolate syrup and whipped cream over buttermilk waffles.',
+                category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Iced', 
+                description: 'Sweet vanilla icing drizzle over buttermilk waffles.',
+                category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
+                image: '',
+                price: 4.50
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Powdered', 
+                description: 'Buttermilk waffles sprinkled with powdered sugar.',
+                category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
+                image: '',
+                price: 4.50
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Plain', 
+                description: 'Our signature buttermilk waffle cooked to perfection.',
+                category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
+                image: '',
+                price: 4.00
             }
         ]);
     },
