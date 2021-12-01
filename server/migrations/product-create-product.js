@@ -169,7 +169,7 @@ module.exports = {
                 name: 'Fruit Shebang', 
                 description: 'Strawberries, raspberries, and blueberries over old fashioned oats.',
                 category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1Ufwojm8hV__DrRbepXhKmUjpzWn5dNXZ',
                 price: 7.00
             },
             { 
@@ -177,7 +177,7 @@ module.exports = {
                 name: 'Sliced Bananas and Oats', 
                 description: 'Sliced bananas served over old fashioned oats.',
                 category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1VRrAyX1c4Zhu6Rz8eCbgEMaKlZUfHopK',
                 price: 6.00
             },
             { 
@@ -185,7 +185,7 @@ module.exports = {
                 name: 'Blueberry Oats', 
                 description: 'Farm fresh blueberries served over old fashioned oats.',
                 category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1xx-QsrBkC-AAmPs7VS2oBwOfzf-I7Pj5',
                 price: 6.00
             },
             { 
@@ -193,7 +193,7 @@ module.exports = {
                 name: 'Raspberry Oats', 
                 description: 'Fresh, juicy raspberries served over old fashioned oats.',
                 category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1eX1tR-b2SWJMTnstVvaDQp2Ss37stDY5',
                 price: 6.00
             },
             { 
@@ -201,8 +201,56 @@ module.exports = {
                 name: 'Plain Oats', 
                 description: 'Old fashioned oats served with sides of maple syrup and brown sugar.',
                 category_uuid: '76a2d90c-4104-11ec-973a-0242ac130003',
+                image: 'https://drive.google.com/uc?export=view&id=1Dkj1KWxAjsH_NhUQyzkyMSemigN0xV4Y',
+                price: 5.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Chocolate Strawberry', 
+                description: 'Rich and decadent chocolate syrup with sliced strawberries over buttermilk pancakes.',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 7.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Chocolate', 
+                description: 'Rich and decadent chocolate syrup over buttermilk pancakes.',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Blackberry Honey', 
+                description: 'Fresh honey and blackberries over buttermilk pancakes.',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Strawberry Honey', 
+                description: 'Fresh honey and sliced strawberries over buttermilk pancakes.',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 6.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Honey', 
+                description: 'Fresh, sweet honey drizzle over buttermilk pancakes.',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
                 image: '',
                 price: 5.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Plain', 
+                description: 'Our signature buttermilk pancake batter cooked to perfection.',
+                category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 4.00
             }
         ]);
     },
