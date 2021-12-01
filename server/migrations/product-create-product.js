@@ -251,6 +251,46 @@ module.exports = {
                 category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
                 image: 'https://drive.google.com/uc?export=view&id=1UgWmiATh1bhHUTEebCb0Ljw8PoeWLG2W',
                 price: 4.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Denver', 
+                description: 'Two scrambled eggs, cheddar cheese, green bell peppers, and country potatoes.',
+                category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 11.50
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Shredded Beef Skillet', 
+                description: 'Two scrambled eggs, chunks of shredded beef, bell peppers and country potatoes.',
+                category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 14.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Arnold Bennette', 
+                description: 'Two scrambled eggs, haddock, fresh herbs.',
+                category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 14.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Sunny', 
+                description: 'Two sunny side up eggs over sliced tomatoes and onions.',
+                category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 10.00
+            },
+            { 
+                uuid: UUIDV1(), 
+                name: 'Tomato', 
+                description: 'Four scrambled eggs, tomatoes, bell peppers, onions.',
+                category_uuid: '939ec372-4104-11ec-973a-0242ac130003',
+                image: '',
+                price: 11.50
             }
         ]);
     },
