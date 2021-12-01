@@ -63,7 +63,7 @@ const Item = ({ token }) => {
     
     return (
         <div>
-            <img src={items.imgPath} alt={items.name} />
+            <img src={items.image} alt={items.name} />
             <div>
                 <button onClick={quantityDown}>-</button>
                 <h2>{quantity}</h2>

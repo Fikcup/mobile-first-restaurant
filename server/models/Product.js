@@ -22,7 +22,7 @@ Product.init(
             allowNull: false,
             unique: true,
         },
-        imgPath: {
+        image: {
             type: DataTypes.STRING,
             unique: true,
         },

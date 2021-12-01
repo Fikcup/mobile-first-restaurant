@@ -63,7 +63,7 @@ const Category = ({ token }) => {
                 return (
                     <NavLink to={link} key={item.name + index}>
                         <div id={item.uuid}>
-                            <img src={item.imgPath} alt={item.name} />                            
+                            <img src={item.image} alt={item.name} />                            
                             <h1>{item.name}</h1>
                             <h2>{item.price}</h2>
                             <p>{item.description}</p>
