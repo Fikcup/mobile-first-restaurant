@@ -209,7 +209,7 @@ module.exports = {
                 name: 'Chocolate Strawberry', 
                 description: 'Rich and decadent chocolate syrup with sliced strawberries over buttermilk pancakes.',
                 category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1yHKQ9bJ2sY4C0p3TQ48Kj4RFEzYtgiUL',
                 price: 7.00
             },
             { 
@@ -217,7 +217,7 @@ module.exports = {
                 name: 'Chocolate', 
                 description: 'Rich and decadent chocolate syrup over buttermilk pancakes.',
                 category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1bXGBgH-IJOhiORjZNCZokPTa5pkBtHF2',
                 price: 6.00
             },
             { 
@@ -225,7 +225,7 @@ module.exports = {
                 name: 'Blackberry Honey', 
                 description: 'Fresh honey and blackberries over buttermilk pancakes.',
                 category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1x-7B9rcqLHJvGgD-xxcksmALH9Ihyh2R',
                 price: 6.00
             },
             { 
@@ -233,7 +233,7 @@ module.exports = {
                 name: 'Strawberry Honey', 
                 description: 'Fresh honey and sliced strawberries over buttermilk pancakes.',
                 category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1Sp7KxguiJniVPK2ZWhVACZjEW_PW771Z',
                 price: 6.00
             },
             { 
@@ -241,7 +241,7 @@ module.exports = {
                 name: 'Honey', 
                 description: 'Fresh, sweet honey drizzle over buttermilk pancakes.',
                 category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1XllV3TfmxwhRInHlSArSDSWS4O-BIHlB',
                 price: 5.00
             },
             { 
@@ -249,7 +249,7 @@ module.exports = {
                 name: 'Plain', 
                 description: 'Our signature buttermilk pancake batter cooked to perfection.',
                 category_uuid: '8fef7b86-4104-11ec-973a-0242ac130003',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1UgWmiATh1bhHUTEebCb0Ljw8PoeWLG2W',
                 price: 4.00
             }
         ]);
