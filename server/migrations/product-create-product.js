@@ -297,15 +297,15 @@ module.exports = {
                 name: 'The Whole Bit', 
                 description: 'Berries, chocolate syrup, and whipped cream over buttermilk waffles.',
                 category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1xdgtfvxHx7MW1XB5oaxl3JVBZRQbyb0-',
                 price: 7.00
             },
             { 
                 uuid: UUIDV1(), 
-                name: 'Sliced Bananas', 
+                name: 'Sliced Banana Waffles', 
                 description: 'Sliced bananas on a bed of soft whipped cream over buttermilk waffles.',
                 category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1YDvNd5WUt05vNT_eXJ47YE62-sp5oWNT',
                 price: 6.00
             },
             { 
@@ -313,15 +313,15 @@ module.exports = {
                 name: 'Berries and Cream', 
                 description: 'Berries with whipped cream over buttermilk waffles.',
                 category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1cvWxTJO29Klid_7C-ErjpfvKVEA2-hko',
                 price: 6.00
             },
             { 
                 uuid: UUIDV1(), 
-                name: 'Blueberry', 
+                name: 'Blueberry Waffles', 
                 description: 'Blueberries topped with whipped cream over buttermilk waffles.',
                 category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1cDWYueRfer3E7tB_5Ia1xF-Jl_Xadzjq',
                 price: 6.00
             },
             { 
@@ -329,31 +329,31 @@ module.exports = {
                 name: 'Chocolate and Cream', 
                 description: 'Warm chocolate syrup and whipped cream over buttermilk waffles.',
                 category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1MviQ-FTT8JoO_5lfTGc2IOA003qNB-U0',
                 price: 6.00
             },
             { 
                 uuid: UUIDV1(), 
-                name: 'Iced', 
+                name: 'Iced Waffles', 
                 description: 'Sweet vanilla icing drizzle over buttermilk waffles.',
                 category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1PVCTcnKxQhcAPmHvRN-wyEjJKpZQOwLp',
                 price: 4.50
             },
             { 
                 uuid: UUIDV1(), 
-                name: 'Powdered', 
+                name: 'Powdered Waffles', 
                 description: 'Buttermilk waffles sprinkled with powdered sugar.',
                 category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1Vc24H-E7H4LBg3Ic2XxaSAzhrwKrm9D3',
                 price: 4.50
             },
             { 
                 uuid: UUIDV1(), 
-                name: 'Plain', 
+                name: 'Plain Waffles', 
                 description: 'Our signature buttermilk waffle cooked to perfection.',
                 category_uuid: '7515b1c2-5248-11ec-bf63-0242ac130002',
-                image: '',
+                image: 'https://drive.google.com/uc?export=view&id=1cyJ1YpN-DBIga6sqw1a2M8bmU0S8_EP0',
                 price: 4.00
             }
         ]);
