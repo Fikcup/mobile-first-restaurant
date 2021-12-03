@@ -38,7 +38,7 @@ const Account = ({ token }) => {
 
             setUser(account.data);
         })();
-    }, [])
+    }, [token])
 
     return(
         <div>
