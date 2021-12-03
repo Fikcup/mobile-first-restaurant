@@ -80,12 +80,20 @@ const Cart = ({ token }) => {
                             });
                     }
 
+                    let orderTotal = 0.00;
+                    let results = getProductInfo(cartProductsData.data, temp);
+                    for (let i = 0; i < results.quantity.length; i++) {
+                        orderTotal += parseInt(results.cost[i]);
+                    }
+                    orderTotal = orderTotal.toFixed(2);
+
                     setProducts(temp);
                     setCart(cartData.data.uuid);
                     setCartProducts(cartProductsData.data);
                     setCart(cartData.data.uuid);
                     setCost(results.cost);
                     setQuantity(results.quantity);
+                    setTotal(orderTotal);
                 }
             }
         })();
