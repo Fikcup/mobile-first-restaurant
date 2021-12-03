@@ -35,6 +35,9 @@ const Account = ({ token }) => {
         <div>
             <h1>Account</h1>
 
+            <h2>Email: {user ? user.email : "" }</h2>
+            <h2>Phone: {user ? user.phone : "" }</h2>
+
             <button onClick={logout}>Logout</button>
             <button onClick={deleteAccount}>Delete account</button>    
         </div>
