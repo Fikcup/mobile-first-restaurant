@@ -21,7 +21,7 @@ const userController = {
             .then((userData) => {
                 if (userData) {
                     if (bcrypt.compareSync(req.body.password, userData.password)) {
-                        let token = jwt.sign({ id: userData.uuid }, process.env.SECRET);
+                        let token = jwt.sign({ id: userData.uuid }, process.env.SECRET, { expiresIn: 60000 * 120 });
 
                         res.json(token);
                     }
@@ -60,7 +60,7 @@ const userController = {
         User.create(req.body)
             .then((userData) => {
                 if(userData) {
-                    let token = jwt.sign({ id: userData.uuid }, process.env.SECRET);
+                    let token = jwt.sign({ id: userData.uuid }, process.env.SECRET, { expiresIn: 60000 * 120 });
 
                     res.json(token);
                 }
