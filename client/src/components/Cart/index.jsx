@@ -6,6 +6,8 @@ const Cart = ({ token }) => {
     // TODO : send token in all cart header requests to verify with backend middleware
     const [cartProducts, setCartProducts] = useState([]);
     const [products, setProducts] = useState([]);
+    const [quantity, setQuantity] = useState([]);
+    const [cost, setCost] = useState([]);
     const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
     const [updated, setUpdated] = useState();
@@ -31,6 +33,29 @@ const Cart = ({ token }) => {
         window.location.reload();
     }
 
+    const getProductInfo = (cartProducts, products) => {
+        let tempQuantity = [];
+
+        {cartProducts.map((cartProduct) => {
+            let count = cartProduct.quantity
+            tempQuantity.push(count);
+        })}
+
+        let tempCost = [];
+
+        {products.map((product, index) => {
+            let productCost = product.price * tempQuantity[index];
+            productCost = parseInt(productCost);
+            productCost = productCost.toFixed(2);
+            tempCost.push(productCost);
+        })}
+
+        return {
+            quantity: tempQuantity,
+            cost: tempCost
+        };
+    }
+
     useEffect(() => {
         (async () => {
             const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
@@ -43,22 +68,24 @@ const Cart = ({ token }) => {
 
                 if (cartProductsData?.data?.length > 0) {
                     let temp = [];
-                    let tempTotal = 0;
 
                     for (const data of cartProductsData.data) {
                         await axios.get(`/api/products/${data.productUuid}`)
                             .then((productData) => {
                                 temp.push(productData.data);
-                                tempTotal += productData.data.price;
                             })
                             .catch((err) => {
                                 console.log(err);
+                                console.log('exists');
                             });
                     }
+
                     setProducts(temp);
-                    setTotal(tempTotal);
                     setCart(cartData.data.uuid);
                     setCartProducts(cartProductsData.data);
+                    setCart(cartData.data.uuid);
+                    setCost(results.cost);
+                    setQuantity(results.quantity);
                 }
             }
         })();
@@ -75,16 +102,9 @@ const Cart = ({ token }) => {
                         <div id={product.uuid} key={product.uuid + index}>
                             <h2>{product.name}</h2>
                             <img src={product.image} alt={product.name} className="product-image" />
-                            <h3>{product.price}</h3>
+                            <h3>{cost[index]}</h3>
+                            <h3>{quantity[index]}</h3>
                             <button onClick={deleteItem}>Remove</button>
-                        </div>
-                    );
-                })}
-
-                {cartProducts.map((cartProduct, index) => {
-                    return (
-                        <div key={cartProduct.uuid + index}>
-                            <h3>{cartProduct.quantity}</h3>
                         </div>
                     );
                 })}
