@@ -19,11 +19,9 @@ const userController = {
             }
         })
             .then((userData) => {
-                if (!userData) {
-                    res.send('Your email or password is incorrect.');
-                } else {
+                if (userData) {
                     if (bcrypt.compareSync(req.body.password, userData.password)) {
-                        let token = jwt.sign({ id: userData.uuid }, process.env.SECRET);
+                        let token = jwt.sign({ id: userData.uuid }, process.env.SECRET, { expiresIn: 60000 * 120 });
 
                         res.json(token);
                     }
@@ -61,10 +59,8 @@ const userController = {
     createUser(req, res) {
         User.create(req.body)
             .then((userData) => {
-                if(!userData) {
-                    res.send('Your form data is invalid. Please try again.');
-                } else {
-                    let token = jwt.sign({ id: userData.uuid }, process.env.SECRET);
+                if(userData) {
+                    let token = jwt.sign({ id: userData.uuid }, process.env.SECRET, { expiresIn: 60000 * 120 });
 
                     res.json(token);
                 }

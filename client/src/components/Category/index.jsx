@@ -20,24 +20,29 @@ const Category = ({ token }) => {
 
         const item = event.target.parentNode.id;
 
-        await axios.post(`/api/carts/${cart}/product/${item}`)
-            .then((cartData) => {
-                console.log(cartData);
-            })
+        await axios.post(`/api/carts/${cart}/product/${item}`);
     }
 
     useEffect(() => {
         async function decodeToken() {
+            let user;
             if (token !== null) {
-                const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
-                const user = decoded.id;
+                jwt.verify(token, process.env.REACT_APP_SECRET, function(err, decoded) {
+                    if (err) {
+                        localStorage.removeItem('token');
+                        window.location.reload();
+                    }
+
+                    if (decoded) {
+                        user = decoded.id
+                    }
+                });
 
                 const cartData = await axios.get(`/api/carts/${user}`);
 
                 if (cartData.data !== null) {
                     setCart(cartData.data.uuid);
                 }
-                console.log(cart);
             }
         }
 
