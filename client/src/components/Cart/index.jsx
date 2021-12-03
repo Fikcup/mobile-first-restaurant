@@ -39,6 +39,7 @@ const Cart = ({ token }) => {
         {cartProducts.map((cartProduct) => {
             let count = cartProduct.quantity
             tempQuantity.push(count);
+            return cartProduct;
         })}
 
         let tempCost = [];
@@ -48,6 +49,7 @@ const Cart = ({ token }) => {
             productCost = parseInt(productCost);
             productCost = productCost.toFixed(2);
             tempCost.push(productCost);
+            return product;
         })}
 
         return {
