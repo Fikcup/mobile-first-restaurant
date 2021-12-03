@@ -22,8 +22,17 @@ const Account = ({ token }) => {
 
     useEffect(() => {
         (async () => {
-            const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
-            const userId = decoded.id;
+            let userId;
+            jwt.verify(token, process.env.REACT_APP_SECRET, function(err, decoded) {
+                if (err) {
+                    localStorage.removeItem('token');
+                    window.location.reload();
+                }
+
+                if (decoded) {
+                    userId = decoded.id;
+                }
+            });
 
             const account = await axios.get(`/api/users/${userId}`);
 

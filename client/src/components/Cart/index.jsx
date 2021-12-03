@@ -56,10 +56,25 @@ const Cart = ({ token }) => {
         };
     }
 
+    const decodeToken = () => {
+        let id;
+        jwt.verify(token, process.env.REACT_APP_SECRET, function(err, decoded) {
+            if (err) {
+                localStorage.removeItem('token');
+                window.location.reload();
+            }
+
+            if (decoded) {
+                id = decoded.id;
+            }
+        });
+
+        return id;
+    }
+
     useEffect(() => {
         (async () => {
-            const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
-            const user = decoded.id;
+            const user = decodeToken();
 
             const cartData = await axios.get(`/api/carts/${user}`);
 

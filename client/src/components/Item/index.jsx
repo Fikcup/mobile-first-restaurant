@@ -21,10 +21,7 @@ const Item = ({ token }) => {
 
         await axios.post(`/api/carts/${cart}/product/${item}`, {
             quantity: quantity
-        })
-            .then((cartData) => {
-                console.log(cartData);
-            })
+        });
     }
 
     async function quantityDown() {
@@ -35,9 +32,18 @@ const Item = ({ token }) => {
 
     useEffect(() => {
         async function decodeToken() {
+            let user;
             if (token !== null) {
-                const decoded = jwt.verify(token, process.env.REACT_APP_SECRET);
-                const user = decoded.id;
+                jwt.verify(token, process.env.REACT_APP_SECRET, function(err, decoded) {
+                    if (err) {
+                        localStorage.removeItem('token');
+                        window.location.reload();
+                    }
+
+                    if (decoded) {
+                        user = decoded.id;
+                    }
+                });
 
                 const cartData = await axios.get(`/api/carts/${user}`);
 
