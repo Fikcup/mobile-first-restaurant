@@ -9,7 +9,11 @@ const Account = ({ token }) => {
         const verify = window.confirm('Are you sure you want to delete your account?');
         
         if (verify) {
-            await axios.delete(`/api/users/${user.uuid}`);
+            await axios.delete(`/api/users/${user.uuid}`, {
+                headers: {
+                    "x-access-token": localStorage.getItem("token")
+                }
+            });
             localStorage.removeItem('token');
             window.location.reload();
         }
@@ -34,7 +38,11 @@ const Account = ({ token }) => {
                 }
             });
 
-            const account = await axios.get(`/api/users/${userId}`);
+            const account = await axios.get(`/api/users/${userId}`, {
+                headers: {
+                    "x-access-token": localStorage.getItem("token")
+                }
+            });
 
             setUser(account.data);
         })();

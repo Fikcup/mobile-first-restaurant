@@ -15,7 +15,11 @@ const Cart = ({ token }) => {
     async function deleteItem(event) {
         const cartProduct = event.target.parentNode.id;
 
-        await axios.delete(`/api/carts/${cart}/product/${cartProduct}`)
+        await axios.delete(`/api/carts/${cart}/product/${cartProduct}`, {
+            headers: {
+                "x-access-token": localStorage.getItem("token")
+            }
+        })
             .then((data) => {
                 console.log(data);
             });
@@ -78,16 +82,28 @@ const Cart = ({ token }) => {
         (async () => {
             const user = decodeToken();
 
-            const cartData = await axios.get(`/api/carts/${user}`);
+            const cartData = await axios.get(`/api/carts/${user}`, {
+                headers: {
+                    "x-access-token": localStorage.getItem("token")
+                }
+            });
 
             if (cartData.data) {
-                const cartProductsData = await axios.get(`/api/carts/${cartData.data.uuid}/product`);
+                const cartProductsData = await axios.get(`/api/carts/${cartData.data.uuid}/product`, {
+                    headers: {
+                        "x-access-token": localStorage.getItem("token")
+                    }
+                });
 
                 if (cartProductsData?.data?.length > 0) {
                     let temp = [];
 
                     for (const data of cartProductsData.data) {
-                        await axios.get(`/api/products/${data.productUuid}`)
+                        await axios.get(`/api/products/${data.productUuid}`, {
+                            headers: {
+                                "x-access-token": localStorage.getItem("token")
+                            }
+                        })
                             .then((productData) => {
                                 temp.push(productData.data);
                             })

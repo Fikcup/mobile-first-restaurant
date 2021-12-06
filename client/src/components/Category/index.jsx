@@ -20,7 +20,11 @@ const Category = ({ token }) => {
 
         const item = event.target.parentNode.id;
 
-        await axios.post(`/api/carts/${cart}/product/${item}`);
+        await axios.post(`/api/carts/${cart}/product/${item}`, {
+            headers: {
+                "x-access-token": localStorage.getItem("token")
+            }
+        });
     }
 
     useEffect(() => {
@@ -38,7 +42,11 @@ const Category = ({ token }) => {
                     }
                 });
 
-                const cartData = await axios.get(`/api/carts/${user}`);
+                const cartData = await axios.get(`/api/carts/${user}`, {
+                    headers: {
+                        "x-access-token": localStorage.getItem("token")
+                    }
+                });
 
                 if (cartData.data !== null) {
                     setCart(cartData.data.uuid);
