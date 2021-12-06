@@ -6,6 +6,7 @@ const {
     updateUser,
     deleteUser,
 } = require('../../controllers/user-controller');
+const { jwtAuth } = require('../../middleware/auth');
 
 // route /api/users/
 router.route('/').post(createUser);
@@ -14,6 +15,6 @@ router.route('/').post(createUser);
 router.route('/:email').post(loginUser);
 
 // route /api/users/:id
-router.route('/:id').get(getOneUser).put(updateUser).delete(deleteUser);
+router.route('/:id').get(jwtAuth, getOneUser).put(jwtAuth, updateUser).delete(jwtAuth, deleteUser);
 
 module.exports = router;
