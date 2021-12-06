@@ -19,9 +19,10 @@ const Item = ({ token }) => {
 
         const item = event.target.id;
 
-        await axios.post(`/api/carts/${cart}/product/${item}`, {
-            quantity: quantity
-        });
+        await axios.post(`/api/carts/${cart}/product/${item}`, 
+            { quantity: quantity },
+            { headers: { "x-access-token": localStorage.getItem("token") }}
+        );
     }
 
     async function quantityDown() {
@@ -45,7 +46,11 @@ const Item = ({ token }) => {
                     }
                 });
 
-                const cartData = await axios.get(`/api/carts/${user}`);
+                const cartData = await axios.get(`/api/carts/${user}`, {
+                    headers: {
+                        "x-access-token": localStorage.getItem("token")
+                    }
+                });
 
                 if (cartData.data !== null) {
                     setCart(cartData.data.uuid);

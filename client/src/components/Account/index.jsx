@@ -9,7 +9,11 @@ const Account = ({ token }) => {
         const verify = window.confirm('Are you sure you want to delete your account?');
         
         if (verify) {
-            await axios.delete(`/api/users/${user.uuid}`);
+            await axios.delete(`/api/users/${user.uuid}`, {
+                headers: {
+                    "x-access-token": localStorage.getItem("token")
+                }
+            });
             localStorage.removeItem('token');
             window.location.reload();
         }
