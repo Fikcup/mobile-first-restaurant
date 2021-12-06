@@ -38,7 +38,11 @@ const Account = ({ token }) => {
                 }
             });
 
-            const account = await axios.get(`/api/users/${userId}`);
+            const account = await axios.get(`/api/users/${userId}`, {
+                headers: {
+                    "x-access-token": localStorage.getItem("token")
+                }
+            });
 
             setUser(account.data);
         })();
