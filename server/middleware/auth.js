@@ -5,7 +5,7 @@ require('dotenv').config();
 module.exports = {
     jwtAuth: function(req, res, next) {
         try {
-            // TODO: get token from header in request and pass into decoded
+            const token = req.headers["x-access-token"];
 
             let decoded = jwt.verify(token, process.env.SECRET);
 
