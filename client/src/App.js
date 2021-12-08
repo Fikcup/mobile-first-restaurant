@@ -12,6 +12,7 @@ import Item from './components/Item';
 import Cart from './components/Cart';
 import Main from './components/Main';
 import Account from './components/Account';
+import Checkout from './components/Checkout';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -52,6 +53,7 @@ function App() {
         <Route exact path="/me" element={token ? <Account token={token} /> : <Login setToken={setToken} />} />
         <Route exact path="/me/signup" element={token ? <Account token={token} /> : <Signup setToken={setToken} />} />
         <Route exact path="/cart" element={token ? <Cart token={token} /> : <Login setToken={setToken} />} />
+        <Route exact path="/checkout" element={<Checkout />} />
       </Routes>
       <Footer>
         <Nav />
